@@ -316,3 +316,51 @@ img {
     animation: cinematicReveal 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 1s; /* Ждем 1 секунду, пока появится фото */
 }
+
+/* --- КНОПКА МУЗЫКИ --- */
+.music-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(252, 249, 246, 0.8); /* Ваш кремовый цвет с прозрачностью */
+    border: 1px solid #dcdcdc;
+    color: #2b2b2b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    backdrop-filter: blur(5px); /* Эффект размытия фона под кнопкой */
+}
+
+.music-btn:hover {
+    transform: scale(1.1);
+    background-color: #FCF9F6;
+}
+
+/* Анимация пульсации, когда музыка выключена (чтобы привлечь внимание) */
+.music-btn.paused {
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(200, 100, 100, 0.4); }
+    70% { box-shadow: 0 0 0 15px rgba(200, 100, 100, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(200, 100, 100, 0); }
+}
+
+/* Стили для иконки */
+.music-btn svg {
+    transition: all 0.3s ease;
+}
+.music-btn.playing svg {
+    color: #c86c6c; /* Красивый красноватый цвет, когда играет */
+}
+.music-btn.playing .mute-line {
+    display: none; /* Убираем перечеркивание, когда играет */
+}
