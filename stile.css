@@ -1,80 +1,318 @@
-@font-face {
-  font-family: 'Font';               
-  src: url('centurygothic.woff2') format('woff2');
-   
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
 }
 
-body{
-    background-color: #FCF9F6; 
+html,
+body {
+    margin: 0;
+    padding: 0;
 }
 
-.screen{
-    min-height: 100dvh;
-    display: flex;
-    flex-direction: column;
-    gap: clamp(0.5rem, 2vh, 2rem);   /* отступы зависят от высоты экрана */
-    padding: clamp(1rem, 2vh, 3rem) clamp(1rem, 2vw, 3rem);
-    box-sizing: border-box;
-    justify-content: center;
+body {
+    background-color: #FCF9F6;
+    font-family: 'Font', sans-serif;
+    color: #2b2b2b;
+    overflow-x: hidden;
+    /* защита от 110% и прочих сюрпризов */
 }
-.screen2{
+
+img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+/* ---------- Секции ---------- */
+.screen,
+.screen2 {
     min-height: 100dvh;
+    width: 100%;
     display: flex;
     flex-direction: column;
-    gap: clamp(0.5rem, 2vh, 2rem);   /* отступы зависят от высоты экрана */
-    padding: clamp(1rem, 2vh, 3rem) clamp(1rem, 2vw, 5rem);
-    box-sizing: border-box;
     justify-content: center;
     align-items: center;
+    gap: clamp(1rem, 2.5vh, 2rem);
+    padding: clamp(1.5rem, 4vh, 3.5rem) clamp(1rem, 4vw, 3rem);
 }
 
-.h1{
+/* Колонка для «текстовых» секций */
+.content-narrow {
+    width: 100%;
+    max-width: 720px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(1rem, 2.5vh, 2rem);
+}
+
+/* ---------- Hero ---------- */
+.hero {
+    gap: clamp(1rem, 3vh, 2.5rem);
+}
+
+.hero-photo {
+    width: 100%;
+    max-width: 520px;
+}
+
+.hero-name {
+    width: 100%;
+    max-width: 420px;
+}
+
+/* ---------- Универсальный класс для картинок ---------- */
+.img-block {
     width: 80%;
-    margin-bottom: 10%;
-}
-.text{
-    width: 90%;
+    padding-bottom: 13%;
 }
 
-.imgData{
-    padding: 15% 0;
-    width: 85%;
+/* Ограничения по типам блоков (mobile-first) */
+.h1 {
+    max-width: 620px;
 }
 
+.h2 {
+    max-width: 500px;
+}
 
-.h2{
-    width: 70%;
-    padding-bottom: 15%;
+.h3 {
+    max-width: 420px;
 }
-.imgTime{
-    width: 60%;
-    padding-bottom: 8%;
+
+.text,
+.text1 {
+    max-width: 620px;
 }
-.Time{
+
+.imgData {
+    max-width: 400px;
+    padding-block: clamp(1rem, 6vh, 6rem);
+}
+
+.img-hands {
+    max-width: 520px;
+}
+
+.img-chalet {
+    width: 110%;
+    max-width: 1000px;
+}
+
+.img-end {
+    max-width: 620px;
+}
+
+.loc-text {
+    max-width: 620px;
+}
+
+/* ---------- «Наш день»: 4 компонента ---------- */
+
+
+
+/* ---- НОВЫЕ правила, не меняют старые ---- */
+.time-item {
+    position: relative;
+    width: 100%;
+    max-width: 600px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: clamp(0.5rem, 10vh, 2rem); 
+    justify-content: center;
+    margin-bottom: clamp(1.5rem, 4vh, 3rem);
+}
+.time-item .imgTime {
+    width: 60%;
+    max-width: 600px;
 }
 
-.loc{
+.tl-icon {
+    position: absolute;
+    width: clamp(48px, 65vw, 120px);
+    height: auto;
+    pointer-events: none;
+    z-index: 2;
+    
+}
+
+/* левые иконки «свисают» за левый край текста */
+.tl-icon--left  { left: -8%;  top: 10%; }
+
+/* правые — за правый край */
+.tl-icon--right { right: -8%; bottom: 10%; }
+
+/* На телефоне отступы-проценты дают слишком мало места — подтягиваем ближе */
+@media (max-width: 600px) {
+    .tl-icon--left  { left: -2%;  top: 5%; }
+    .tl-icon--right { right: -2%; bottom: 5%; }
+    .tl-icon { width: clamp(44px, 65vw, 60px); }
+}
+
+
+/* ---------- Локации ---------- */
+.loc {
+    width: 100%;
+    max-width: 720px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     align-items: center;
-    gap: clamp(0.5rem, 1vh, 2rem);
-    padding-bottom: 7%;
+    gap: clamp(1rem, 1vw, 3rem);
 }
 
-.imgloc{
+.loc .imgloc {
     width: 50%;
+    max-width: 260px;
+    
+}
+.imgloc {
+    margin-bottom: 13%;
+    
 }
 
-.h3{
-    width: 70%;
-    padding-bottom: 7%;
+/* ---------- Планшет ---------- */
+@media (min-width: 768px) {
+    .time-grid {
+        max-width: 800px;
+    }
+
+    .time-grid .imgTime {
+        max-width: 320px;
+    }
+
+    .loc .imgloc {
+        max-width: 300px;
+    }
+
+    .hero-photo {
+        max-width: 640px;
+    }
+
+    .hero-name {
+        max-width: 520px;
+    }
+
+    .h1 {
+        max-width: 780px;
+    }
+
+    .h2 {
+        max-width: 600px;
+    }
+
+    .h3 {
+        max-width: 500px;
+    }
+
+    .text,
+    .text1,
+    .loc-text {
+        max-width: 720px;
+    }
+
+    .img-hands {
+        max-width: 640px;
+    }
+
+    .img-chalet {
+        max-width: 860px;
+    }
 }
 
-.text1{
-    width: 90%;
-    margin-bottom: 15%;
+/* ---------- Десктоп ---------- */
+@media (min-width: 1200px) {
+    .time-grid {
+        max-width: 1100px;
+    }
+
+    .time-grid .imgTime {
+        max-width: 240px;
+    }
+
+    .loc .imgloc {
+        max-width: 320px;
+    }
+
+    .h1 {
+        max-width: 900px;
+    }
+
+    .h2 {
+        max-width: 680px;
+    }
+
+    .text,
+    .text1,
+    .loc-text {
+        max-width: 780px;
+    }
+
+    .img-chalet {
+        max-width: 960px;
+    }
+
+    .img-end {
+        max-width: 760px;
+    }
+
+    .img-hands {
+        max-width: 720px;
+    }
+}
+
+
+/* --- ЭФФЕКТ ПОЯВЛЕНИЯ --- */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px); /* Сдвиг вниз на 40px */
+    transition: opacity 1.2s cubic-bezier(0.25, 0.1, 0.25, 1), 
+                transform 1.2s cubic-bezier(0.25, 0.1, 0.25, 1);
+    will-change: opacity, transform; /* Подсказка браузеру для плавности */
+}
+
+/* Класс, который добавляется при прокрутке */
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Для тех, у кого отключена анимация в системе (доступность) */
+@media (prefers-reduced-motion: reduce) {
+    .reveal {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* --- КРАСИВОЕ ПОЯВЛЕНИЕ ПЕРВОЙ КАРТИНКИ --- */
+
+/* Начальное состояние и запуск анимации */
+.hero-photo {
+    opacity: 0;
+    /* Анимация длится 2.5 секунды, плавно замедляется к концу */
+    animation: cinematicReveal 2.5s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    /* Задержка 0.2 сек, чтобы страница успела прогрузиться */
+    animation-delay: 0.2s; 
+}
+
+/* Описание самой анимации */
+@keyframes cinematicReveal {
+    0% {
+        opacity: 0;
+        transform: scale(0.92) translateY(20px); /* Чуть меньше и ниже */
+        filter: blur(12px); /* Размытие */
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) translateY(0); /* Встает на место */
+        filter: blur(0); /* Становится четкой */
+    }
+}
+
+/* Опционально: Имя (вторая картинка) появится чуть позже с таким же эффектом */
+.hero-name {
+    opacity: 0;
+    animation: cinematicReveal 2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 1s; /* Ждем 1 секунду, пока появится фото */
 }
