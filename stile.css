@@ -1,0 +1,80 @@
+@font-face {
+  font-family: 'Font';               
+  src: url('centurygothic.woff2') format('woff2');
+   
+}
+
+body{
+    background-color: #FCF9F6; 
+}
+
+.screen{
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 2vh, 2rem);   /* отступы зависят от высоты экрана */
+    padding: clamp(1rem, 2vh, 3rem) clamp(1rem, 2vw, 3rem);
+    box-sizing: border-box;
+    justify-content: center;
+}
+.screen2{
+    min-height: 100dvh;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(0.5rem, 2vh, 2rem);   /* отступы зависят от высоты экрана */
+    padding: clamp(1rem, 2vh, 3rem) clamp(1rem, 2vw, 5rem);
+    box-sizing: border-box;
+    justify-content: center;
+    align-items: center;
+}
+
+.h1{
+    width: 80%;
+    margin-bottom: 10%;
+}
+.text{
+    width: 90%;
+}
+
+.imgData{
+    padding: 15% 0;
+    width: 85%;
+}
+
+
+.h2{
+    width: 70%;
+    padding-bottom: 15%;
+}
+.imgTime{
+    width: 60%;
+    padding-bottom: 8%;
+}
+.Time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: clamp(0.5rem, 10vh, 2rem); 
+}
+
+.loc{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: clamp(0.5rem, 1vh, 2rem);
+    padding-bottom: 7%;
+}
+
+.imgloc{
+    width: 50%;
+}
+
+.h3{
+    width: 70%;
+    padding-bottom: 7%;
+}
+
+.text1{
+    width: 90%;
+    margin-bottom: 15%;
+}
